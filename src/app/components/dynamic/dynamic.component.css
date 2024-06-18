@@ -1,0 +1,19 @@
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.form-field {
+  flex: 1 1 50%;
+  box-sizing: border-box;
+  padding-right: 10px;
+}
+
+.form-field:last-child {
+  padding-right: 0;
+}
+
+.full-width {
+  width: 100%;
+}

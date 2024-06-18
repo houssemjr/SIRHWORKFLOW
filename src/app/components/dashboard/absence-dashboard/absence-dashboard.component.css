@@ -1,0 +1,95 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.charts-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.chart-container {
+  flex: 1 1 30%;
+  margin: 10px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chart-title {
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.chart-title .chart-icon {
+  color: #28a745;
+  margin-right: 10px;
+}
+
+.calendar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px; /* Add some space above the calendar section */
+}
+
+.calendar-section h3 {
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000; /* Set text color to black */
+}
+
+.calendar-section .green-icon {
+  color: #28a745; /* Set icon color to green */
+  margin-right: 10px;
+}
+
+app-calendrier-rh {
+  width: 100%;
+  max-width: 800px; /* Increased the max-width for better visual balance */
+  border-radius: 8px;
+}
+
+/* Additional styles for FullCalendar */
+.fc .fc-daygrid-event {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.fc .fc-event-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fc .fc-event-main img {
+  width: 20px; /* Smaller size for profile images */
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.fc-daygrid-day-frame {
+  justify-content: center; /* Center events within the day cells */
+}

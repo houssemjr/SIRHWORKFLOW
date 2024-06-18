@@ -1,0 +1,124 @@
+[
+    {
+        "type": "subtitle",
+        "label": "Informations personnelles"
+    },
+    {
+        "key": "username",
+        "label": "Username",
+        "type": "text",
+        "required": true
+    },
+    {
+        "key": "nom",
+        "label": "Nom",
+        "type": "text",
+        "required": true
+    },
+    {
+        "key": "prenom",
+        "label": "Prenom",
+        "type": "text",
+        "required": true
+    },
+   
+    {
+        "key": "cin",
+        "label": "CIN",
+        "type": "text",
+        "required": true
+    },
+    {
+        "key": "telephone",
+        "label": "Telephone",
+        "type": "text",
+        "required": true
+    },
+   
+    {
+        "key": "adresse",
+        "label": "Adresse",
+        "type": "text",
+        "required": true
+    },
+    {
+        "key": "sitf",
+        "label": "Situation familiale",
+        "type": "select",
+        "options": ["marié(e)", "Célibataire", "divorcé(e)"],
+        "required": true
+    },
+    {
+        "key": "email",
+        "label": "Email",
+        "type": "text",
+        "required": true
+    },
+    {
+        "key": "genre",
+        "label": "Genre",
+        "type": "select",
+        "options": ["Homme", "Femme"],
+        "required": true
+    },
+    {
+        "type": "separator"
+    },
+    {
+        "type": "subtitle",
+        "label": "Informations professionnelles"
+    },
+    {
+        "key": "poste",
+        "label": "Poste",
+        "type": "text",
+        "required": true
+    },
+    {
+        "key": "equipe",
+        "label": "Équipe",
+        "type": "select",
+        "options": ["Équipe A", "Équipe B", "Équipe C"],
+        "required": true
+    },
+    {
+        "key": "manager",
+        "label": "Manager",
+        "type": "select",
+        "options": ["Manager 1", "Manager 2", "Manager 3"],
+        "required": true
+    },
+ 
+    {
+        "key": "matricule",
+        "label": "Matricule",
+        "type": "text",
+        "required": true
+    },
+    {
+        "key": "dateRecrutement",
+        "label": "Date de recrutement",
+        "type": "date",
+        "required": true
+    },
+    {
+        "key": "diplome",
+        "label": "Diplôme",
+        "type": "select",
+        "options": ["Ingénieur", "Licence"],
+        "required": true
+    },
+    {
+        "key": "seniorite",
+        "label": "Seniorité",
+        "type": "select",
+        "options": ["0-2", "2-5", "5-10", "10+"],
+        "required": true
+    },
+    {
+        "key": "anciennete",
+        "label": "Ancienneté",
+        "type": "number",
+        "required": true
+    }
+]

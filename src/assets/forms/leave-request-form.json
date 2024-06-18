@@ -1,0 +1,29 @@
+
+
+  
+[
+    {
+      "key": "leaveType",
+      "label": "Motif",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "startDate",
+      "label": "Date de début",
+      "type": "date",
+      "required": true
+    },
+    {
+      "key": "endDate",
+      "label": "Date de fin",
+      "type": "date",
+      "required": true
+    },
+    {
+      "key": "message",
+      "label": "Message (Optional)",
+      "type": "textarea",
+      "required": false
+    }
+  ]

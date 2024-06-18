@@ -1,0 +1,56 @@
+<div class="motif-cards-container">
+  <div class="motif-cards-grid">
+    <div *ngFor="let motif of motifs" 
+         class="motif-card-wrapper" 
+         (click)="selectMotif(motif)" 
+         [ngStyle]="{'border-color': motif.couleur, 'background-color': hoveredMotif === motif ? motif.couleur : 'white'}" 
+         [ngClass]="{'hovered': hoveredMotif === motif}" 
+         (mouseenter)="hoveredMotif = motif" 
+         (mouseleave)="hoveredMotif = null">
+      <mat-card class="motif-card" [appCardBorderColor]="motif.couleur">
+        <mat-card-header class="card-header">
+          <div class="card-title-container">
+            <mat-card-title>{{ motif.titre }}</mat-card-title>
+            <button mat-icon-button [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="disableMotif(motif)">Désactiver</button>
+            </mat-menu>
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="motif-code-circle" [style.backgroundColor]="motif.couleur">
+            {{ motif.code }}
+          </div>
+          <p><strong>Solde Initial:</strong> {{ motif.soldeInitial }}</p>
+          <p><strong>Unité:</strong> {{ motif.unite }}</p>
+          <p><strong>Dépassement Autorisé:</strong> {{ motif.depassementAutorise ? 'Oui' : 'Non' }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <button mat-raised-button color="primary" class="add-motif-button" (click)="addMotif()">Ajouter Motif</button>
+</div>
+
+<div class="motif-details-container" *ngIf="!showAddMotifForm && selectedMotif">
+  <mat-card class="motif-detail-card" [style.borderLeftColor]="selectedMotif.couleur">
+    <mat-card-header class="detail-card-header">
+      <mat-card-title>Détails du motif</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>Titre:</strong> {{ selectedMotif.titre }}</p>
+      <p><strong>Validité:</strong> {{ selectedMotif.validite | date:'mediumDate' }}</p>
+      <p><strong>Couleur:</strong> {{ selectedMotif.couleur }}</p>
+      <p><strong>Workflow:</strong> {{ selectedMotif.workflow }}</p>
+      <p><strong>Type:</strong> {{ selectedMotif.type }}</p>
+      <p><strong>Solde Initial:</strong> {{ selectedMotif.soldeInitial }}</p>
+      <p><strong>Unité:</strong> {{ selectedMotif.unite }}</p>
+      <p><strong>Dépassement Autorisé:</strong> {{ selectedMotif.depassementAutorise ? 'Oui' : 'Non' }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="add-motif-container" *ngIf="showAddMotifForm">
+  <app-addmotif></app-addmotif>
+</div>

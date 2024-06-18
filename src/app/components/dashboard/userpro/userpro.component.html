@@ -1,0 +1,61 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Poste</mat-label>
+      <input matInput formControlName="poste">
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Équipe</mat-label>
+      <mat-select formControlName="equipe">
+        <mat-option *ngFor="let equipe of equipes" [value]="equipe">{{ equipe }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Manager</mat-label>
+      <mat-select formControlName="manager">
+        <mat-option *ngFor="let manager of managers" [value]="manager">{{ manager }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Rôle</mat-label>
+      <mat-select formControlName="role">
+        <mat-option *ngFor="let role of roles" [value]="role">{{ role }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Matricule</mat-label>
+      <input matInput formControlName="matricule">
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Date de recrutement</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dateRecrutement">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Diplôme</mat-label>
+      <mat-select formControlName="diplome">
+        <mat-option *ngFor="let diplome of diplomes" [value]="diplome">{{ diplome }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Seniorité</mat-label>
+      <mat-select formControlName="seniorite">
+        <mat-option *ngFor="let seniorite of seniorites" [value]="seniorite">{{ seniorite }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Ancienneté</mat-label>
+      <input matInput type="number" formControlName="anciennete">
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" type="submit">Soumettre</button>
+  </form>
+  

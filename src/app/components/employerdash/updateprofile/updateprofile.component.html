@@ -1,0 +1,142 @@
+<div class="update-profile-container" *ngIf="user; else noData">
+  <mat-card class="profile-card">
+    <mat-card-header>
+      <mat-card-title>Profil de {{ user.nom }} {{ user.prenom }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="profileForm" (ngSubmit)="updateProfile()">
+        <div class="profile-picture">
+          <img [src]="imagePreview || 'assets/default-avatar.png'" alt="Photo de profil" class="profile-img">
+          <button mat-raised-button color="primary" (click)="fileInput.click()">Changer la photo</button>
+          <input type="file" class="profile-img-input" (change)="onFileSelected($event)" accept="image/*" #fileInput>
+        </div>
+
+
+        <div class="form-row">
+          <div class="form-field">
+            <mat-form-field appearance="fill">
+              <mat-label>Nom d'utilisateur</mat-label>
+              <input matInput formControlName="username" readonly>
+            </mat-form-field>
+          </div>
+          <div class="form-field">
+            <mat-form-field appearance="fill">
+              <mat-label>Nom</mat-label>
+              <input matInput formControlName="nom" readonly>
+            </mat-form-field>
+          </div>
+          <div class="form-field">
+            <mat-form-field appearance="fill">
+              <mat-label>Prénom</mat-label>
+              <input matInput formControlName="prenom" readonly>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <mat-form-field appearance="fill">
+              <mat-label>CIN</mat-label>
+              <input matInput formControlName="cin" readonly>
+            </mat-form-field>
+          </div>
+          <div class="form-field">
+            <mat-form-field appearance="fill">
+              <mat-label>Téléphone</mat-label>
+              <input matInput formControlName="telephone">
+            </mat-form-field>
+          </div>
+          <div class="form-field">
+            <mat-form-field appearance="fill">
+              <mat-label>Adresse</mat-label>
+              <input matInput formControlName="adresse">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <mat-form-field appearance="fill">
+              <mat-label>Situation familiale</mat-label>
+              <input matInput formControlName="sitf" readonly>
+            </mat-form-field>
+          </div>
+          <div class="form-field">
+            <mat-form-field appearance="fill">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email">
+            </mat-form-field>
+          </div>
+          <div class="form-field">
+            <mat-form-field appearance="fill">
+              <mat-label>Genre</mat-label>
+              <input matInput formControlName="genre" readonly>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <mat-form-field appearance="fill">
+              <mat-label>Poste</mat-label>
+              <input matInput formControlName="poste" readonly>
+            </mat-form-field>
+          </div>
+          <div class="form-field">
+            <mat-form-field appearance="fill">
+              <mat-label>Équipe</mat-label>
+              <input matInput formControlName="equipe" readonly>
+            </mat-form-field>
+          </div>
+          <div class="form-field">
+            <mat-form-field appearance="fill">
+              <mat-label>Manager</mat-label>
+              <input matInput formControlName="manager" readonly>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <mat-form-field appearance="fill">
+              <mat-label>Matricule</mat-label>
+              <input matInput formControlName="matricule" readonly>
+            </mat-form-field>
+          </div>
+          <div class="form-field">
+            <mat-form-field appearance="fill">
+              <mat-label>Date de recrutement</mat-label>
+              <input matInput formControlName="dateRecrutement" readonly>
+            </mat-form-field>
+          </div>
+          <div class="form-field">
+            <mat-form-field appearance="fill">
+              <mat-label>Diplôme</mat-label>
+              <input matInput formControlName="diplome" readonly>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <mat-form-field appearance="fill">
+              <mat-label>Seniorité</mat-label>
+              <input matInput formControlName="seniorite" readonly>
+            </mat-form-field>
+          </div>
+          <div class="form-field">
+            <mat-form-field appearance="fill">
+              <mat-label>Ancienneté</mat-label>
+              <input matInput formControlName="anciennete" readonly>
+            </mat-form-field>
+          </div>
+        </div>
+        <button mat-raised-button color="primary" type="submit">Mettre à jour le profil</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<ng-template #noData>
+  <p>No user data available.</p>
+</ng-template>

@@ -1,0 +1,95 @@
+.gestion-collab-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.cards-container {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  background-color: #f5f5f5; /* Slight background color for visibility */
+}
+
+.card {
+  cursor: pointer;
+  margin: 0 10px;
+  flex: 0 0 200px; /* Fixed width for cards */
+  box-sizing: border-box;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.user-details-column {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #fff; /* Background color for separation */
+  overflow-y: auto;
+}
+
+.card-header {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px;
+  border-bottom: 1px solid #218838;
+  border-radius: 8px 8px 0 0;
+}
+
+.card-headers {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px;
+  border-bottom: 1px solid #218838;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 20px;
+}
+
+.cardtest {
+  border-bottom: 1px solid #218838;
+  border: #218838;
+  border-bottom: 1px solid #218838;
+  border-radius: 8px 8px 0 0;
+}
+
+.add-button {
+  color: #fff;
+  background-color: #218838;
+  margin-left: auto;
+}
+
+.canvas {
+  height: 80vh;
+  width: 100%;
+  border: 1px solid #000;
+  margin-top: 20px;
+}
+.workflow-code-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #b9e48a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.add-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #136212;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

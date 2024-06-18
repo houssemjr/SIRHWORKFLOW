@@ -1,0 +1,105 @@
+body, html {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #28a745; /* Vert */
+  padding: 10px 20px;
+  color: #fff; /* Blanc */
+}
+
+.toolbar-item-spacer {
+  flex: 1 1 auto;
+}
+
+.app-container {
+  height: 100%;
+  margin: 0;
+}
+
+.app-sidenav {
+  width: 230px;
+  background-color: #343a40; /* Gris très foncé */
+  color: #fff; /* Blanc */
+}
+
+.custom-nav-list {
+  background-color: #343a40; /* Gris très foncé */
+  color: #fff; /* Blanc */
+  height: 100vh; /* Prend toute la hauteur de la page */
+}
+
+.custom-nav-list .nav-list-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  font-size: 16px;
+  color: #fff; /* Blanc */
+  text-decoration: none;
+}
+
+.custom-nav-list .nav-list-item:hover {
+  background-color: #495057; /* Gris plus clair au survol */
+}
+
+.custom-nav-list .nav-list-item mat-icon {
+  margin-right: 10px;
+  color: #fff; /* Blanc */
+}
+
+.custom-nav-list .nav-list-item .nav-text {
+  color: #fff; /* Blanc */
+}
+
+.spn {
+  color: azure;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.bts {
+  color: #fff;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.bts:hover {
+  color: #d4edda; /* Couleur de survol */
+  background-color: #006602;
+}
+
+.example-icon {
+  color: azure;
+}
+
+.example-icon:hover {
+  color: #d4edda; /* Couleur de survol */
+}
+
+.app-sidenav-content {
+  align-items: center;
+}
+
+.mat-nav-list a:hover,
+.mat-nav-list .mat-list-item:hover,
+.nav-link:hover {
+  background-color: #4caf50; /* Vert foncé */
+  color: #028737; /* Texte blanc en survol */
+}
+
+.dash:hover {
+  color: #448900;
+}
+
+.badgediv {
+  position: sticky;
+  margin-right: 1%;
+}

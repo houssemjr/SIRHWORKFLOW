@@ -1,0 +1,27 @@
+<div class="gestion-collab-container">
+  <!-- Bouton "+" -->
+  <button mat-icon-button class="add-button" (click)="showAddWorkflowDialog()">
+    <mat-icon>add</mat-icon>
+  </button>
+
+  <div class="cards-container">
+    <mat-card *ngFor="let workflow of workflows" class="card" (click)="onWorkflowChange(workflow)" [class.selected]="selectedWorkflow?.id === workflow.id">
+      <mat-card-header class="card-header">
+        <mat-card-title>WORKFLOW</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="workflow-code-circle">{{ workflow.code }}</div> {{workflow.titre}}
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Affichage du composant app-addwf -->
+  <app-addwf *ngIf="showAddWorkflow"></app-addwf>
+
+  <div class="user-details-column">
+    <mat-toolbar class="card-headers">  
+      <span class="titleh">Designer BPMN 2.0 :</span>
+    </mat-toolbar>
+    <div #canvas class="canvas" id="canvas"></div>
+  </div>
+</div>

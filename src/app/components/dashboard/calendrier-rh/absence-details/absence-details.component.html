@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Les absents aujourd'hui</h2>
+<mat-dialog-content>
+  <div *ngFor="let leave of data.leaves">
+    <img [src]="leave.extendedProps.photo" alt="Photo de profil" class="profile-pic">
+    <span>{{ leave.extendedProps.userName }}</span>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onClose()">Fermer</button>
+</mat-dialog-actions>

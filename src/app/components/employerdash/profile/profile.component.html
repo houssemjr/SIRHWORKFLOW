@@ -1,0 +1,41 @@
+<!-- profile.component.html -->
+<div *ngIf="user; else loading">
+    <div class="profile-container">
+      <h1>User Profile</h1>
+      <img src="{{ user.attributes.profileImage }}" alt="Profile Image" class="profile-image">
+      <div class="profile-detail">
+        <strong>Username:</strong> {{ user.username }}
+      </div>
+
+    
+  
+
+
+      <div class="profile-detail">
+        <strong>First Name:</strong> {{ user.firstName }}
+      </div>
+      <div class="profile-detail">
+        <strong>Last Name:</strong> {{ user.lastName }}
+      </div>
+      <div class="profile-detail">
+        <strong>Email:</strong> {{ user.email }}
+      </div>
+            <!-- Display solde de conge -->
+    <div class="profile-detail">
+        <strong>Solde de congé:</strong> {{ solde.soldeconge }} J0URS
+      </div>
+  
+      <!-- Display solde heure -->
+      <div class="profile-detail">
+        <strong>Solde d'heures:</strong> {{ solde.soldeheure }} HEURES
+      </div>
+      <div class="profile-detail" *ngIf="user.sub">
+        <strong>Subscription ID:</strong> {{ user.sub }}
+      </div>
+    </div>
+  </div>
+
+  <ng-template #loading>
+    <p>Loading profile...</p>
+  </ng-template>
+  

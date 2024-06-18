@@ -1,0 +1,36 @@
+<div class="dashboard">
+  <div class="charts-section">
+    <div class="chart-container">
+      <h3 class="chart-title"><mat-icon class="chart-icon">today</mat-icon> Taux d'absence du jour en cours</h3>
+      <apx-chart 
+        [series]="dailyAbsenceChartOptions.series"
+        [chart]="dailyAbsenceChartOptions.chart"
+        [labels]="dailyAbsenceChartOptions.labels"
+        [responsive]="dailyAbsenceChartOptions.responsive">
+      </apx-chart>
+    </div>
+    <div class="chart-container">
+      <h3 class="chart-title"><mat-icon class="chart-icon">date_range</mat-icon> Taux d'absence des 30 derniers jours</h3>
+      <apx-chart 
+        [series]="thirtyDaysAbsenceChartOptions.series"
+        [chart]="thirtyDaysAbsenceChartOptions.chart"
+        [xaxis]="thirtyDaysAbsenceChartOptions.xaxis"
+        [title]="thirtyDaysAbsenceChartOptions.title">
+      </apx-chart>
+    </div>
+    <div class="chart-container">
+      <h3 class="chart-title"><mat-icon class="chart-icon">pie_chart</mat-icon> Types d'absence des 30 derniers jours</h3>
+      <apx-chart 
+        [series]="absenceTypeChartOptions.series"
+        [chart]="absenceTypeChartOptions.chart"
+        [labels]="absenceTypeChartOptions.labels"
+        [responsive]="absenceTypeChartOptions.responsive">
+      </apx-chart>
+    </div>
+  </div>
+
+  <div class="calendar-section">
+    <h3 class="calendar-title"><mat-icon class="green-icon">calendar_today</mat-icon> Calendrier des Absences</h3>
+    <app-calendrier-rh></app-calendrier-rh>
+  </div>
+</div>

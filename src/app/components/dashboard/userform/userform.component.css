@@ -1,0 +1,19 @@
+.form-field {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  
+  .form-row > .form-field:last-child {
+    margin-right: 0;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  

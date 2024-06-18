@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-toolbar {
+    background-color: #4CAF50; /* Adjusted color to green */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.titleh {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.mat-divider {
+    margin: 20px 0;
+}
+
+.assign-role-section {
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.assign-role-title {
+    display: flex;
+    align-items: center;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.title-icon {
+    margin-right: 10px;
+    color: #4CAF50; /* Adjusted color to green */
+}
+
+.full-width-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.assign-button {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 8px;
+    background-color: #4CAF50; /* Adjusted color to green */
+    color: #fff;
+}

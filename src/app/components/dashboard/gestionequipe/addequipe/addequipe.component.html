@@ -1,0 +1,33 @@
+<div class="container">
+  <mat-toolbar class="mat-toolbar-titleh">
+    <span class="titleh">AJOUTER EQUIPE:</span>
+  </mat-toolbar>
+  <br>
+  <app-dynamic-form formName="equipe-request" [apiUrl]="apu" [IdEmployee]="IdEmployee"></app-dynamic-form>
+  
+  <mat-toolbar  class="mat-toolbar-assign">
+    <span>Assign User to Equipe :</span>
+  </mat-toolbar>
+  
+  <form (ngSubmit)="assignUserToEquipe()">
+    <mat-form-field appearance="fill">
+      <mat-label>Select Equipe</mat-label>
+      <mat-select [(ngModel)]="selectedEquipe" name="selectedEquipe" required>
+        <mat-option *ngFor="let equipe of equipes" [value]="equipe.id">
+          {{ equipe.titre }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Select User</mat-label>
+      <mat-select [(ngModel)]="selectedUser" name="selectedUser" required>
+        <mat-option *ngFor="let user of users" [value]="user.id">
+          {{ user.nom }} {{ user.prenom }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" type="submit">Assign</button>
+  </form>
+</div>

@@ -1,0 +1,137 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .dashboard {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .charts-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .chart-container {
+    flex: 1 1 30%;
+    margin: 10px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensure no scrollbar appears */
+  }
+  
+  .chart-container h3 {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    overflow: hidden; /* Ensure no scrollbar appears */
+  }
+  
+  .calendar-container {
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden; /* Ensure no scrollbar appears */
+  }
+  
+  .calendar-title {
+    text-align: center;
+    font-size: 1.5em;
+    color: #000;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .calendar-title mat-icon {
+    color: #28a745;
+    margin-right: 10px;
+  }
+  
+  .calendar-wrapper {
+    position: relative;
+    max-height: 450px; /* Adjusted height */
+    overflow: hidden;
+  }
+  
+  .fc {
+    max-height: 430px; /* Adjusted height */
+    overflow: hidden; /* Ensure no scrollbar appears */
+  }
+  
+  .fc-scrollgrid-sync-inner {
+    max-height: 430px; /* Adjusted height */
+    overflow: hidden; /* Ensure no scrollbar appears */
+  }
+  
+  .fc-daygrid-body {
+    overflow: hidden; /* Ensure no scrollbar appears */
+  }
+  
+  .fc-daygrid-day-frame {
+    max-height: 60px; /* Adjust height as necessary */
+    overflow: hidden; /* Ensure no scrollbar appears */
+  }
+  
+  .fc-daygrid-day-top {
+    height: 1.5em; /* Adjust height as necessary */
+  }
+  
+  .fc-daygrid-day-events {
+    overflow: hidden;
+  }
+  
+  .fc-daygrid-day {
+    max-height: 70px; /* Adjust height as necessary */
+    overflow: hidden; /* Ensure no scrollbar appears */
+  }
+  
+  .fc-daygrid-event {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent !important;
+    border: none !important;
+  }
+  
+  .fc-event-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .fc-event-main img {
+    width: 20px; /* Smaller size for profile images */
+    height: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .fc-daygrid-event .fc-event-main {
+    justify-content: center;
+  }
+  
+  .fc-daygrid-event .fc-event-title {
+    display: none;
+  }
+  
+  .fc-daygrid-event-dot {
+    display: none;
+  }
+  
+  .profile-pic {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  

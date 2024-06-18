@@ -1,0 +1,28 @@
+<mat-grid-list cols="3" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let user of users">
+      <div class="card">
+        <mat-card>
+          <div class="card-header">
+            <mat-card-title>Info Collab :</mat-card-title>
+          </div>
+          <mat-card-content>nom : {{ user.nom}}</mat-card-content>
+          <mat-card-content>prenom : {{ user.prenom}}</mat-card-content>
+          <mat-card-content>poste : {{ user.poste }}</mat-card-content>
+          <mat-card-content>matricule : {{ user.matricule }}</mat-card-content>
+          <mat-card-content>equipe : {{ user.equipe }}</mat-card-content>
+        <mat-card-content><p><strong>Email:</strong> {{ user.email }}</p></mat-card-content>
+<mat-card-content> <p><strong>Username:</strong> {{ user.username }}</p></mat-card-content>
+<mat-card-content> <p><strong>adresse:</strong> {{ user.adresse }}</p></mat-card-content>
+<mat-card-content>          <p><strong>Genre:</strong> {{ user.genre }}</p> </mat-card-content>
+
+<mat-card-actions class="button-container">
+    <button mat-button color="primary" (click)="editUser(user.id)">Modifier</button>
+    <button mat-button color="warn" (click)="deleteUser(user.id)">Supprimer</button>
+  </mat-card-actions>
+
+         
+        </mat-card>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  

@@ -1,0 +1,50 @@
+<div class="gestion-collab-container">
+  <div class="cards-container">
+    <div class="centered-container">
+      <mat-card *ngIf="ceo" class="orgchart-card" (click)="toggleCto()">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>account_circle</mat-icon>
+            {{ ceo.nom }} {{ ceo.prenom }} - CEO
+          </mat-card-title>
+        </mat-card-header>
+      </mat-card>
+    </div>
+
+    <div class="centered-container" *ngIf="showCto">
+      <mat-card *ngIf="cto" class="orgchart-card" (click)="toggleTeams()">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>account_circle</mat-icon>
+            {{ cto.nom }} {{ cto.prenom }} - CTO
+          </mat-card-title>
+        </mat-card-header>
+      </mat-card>
+    </div>
+
+    <div class="teams-container" *ngIf="showTeamsContainer">
+      <mat-card *ngFor="let team of getTeams()" class="orgchart-card">
+        <mat-card-header (click)="toggleTeam(team)">
+          <mat-card-title>
+            <mat-icon>group</mat-icon>
+            {{ team }}
+          </mat-card-title>
+        </mat-card-header>
+
+        <div *ngIf="showTeams[team]" class="team-members">
+          <mat-card *ngFor="let member of teams[team]" class="orgchart-card-member">
+            <mat-card-header>
+              <div class="profile-pic-container">
+                <img *ngIf="member.photodeProfil" [src]="getProfileImageUrl(member.photodeProfil)" class="profile-pic" alt="Profile Picture">
+                <mat-icon *ngIf="!member.photodeProfil" class="default-pic">account_circle</mat-icon>
+              </div>
+              <div class="member-info">
+                <mat-card-title>{{ member.nom }} {{ member.prenom }}</mat-card-title>
+              </div>
+            </mat-card-header>
+          </mat-card>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,115 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #28a745; /* Vert */
+  padding: 10px 20px;
+  color: #fff; /* Blanc */
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.example-icon,
+.nav-item {
+  color: #fff; /* Blanc */
+}
+
+.example-icon:hover,
+.nav-item:hover {
+  color: #d4edda; /* Couleur de survol */
+  cursor: pointer;
+}
+
+.navbar-menu .nav-item {
+  margin: 0 15px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar-menu .nav-item:hover {
+  text-decoration: underline;
+}
+
+.custom-nav-list {
+  background-color: #343a40; /* Gris très foncé */
+  color: #fff; /* Blanc */
+  height: 100vh; /* Prend toute la hauteur de la page */
+}
+
+.custom-nav-list .nav-list-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  font-size: 16px;
+  color: #fff; /* Blanc */
+  text-decoration: none;
+}
+
+.custom-nav-list .nav-list-item:hover {
+  background-color: #495057; /* Gris plus clair au survol */
+}
+
+.custom-nav-list .nav-list-item mat-icon {
+  margin-right: 10px;
+  color: #fff; /* Blanc */
+}
+
+.custom-nav-list .nav-list-item span {
+  color: #fff; /* Blanc */
+}
+
+.nav-text {
+  color: #fff;
+}
+
+.app-container {
+  height: 100%;
+  margin: 0;
+}
+
+.app-sidenav {
+  width: 230px;
+}
+
+.spn {
+  color: azure;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.bts {
+  color: #fff;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.example-icon {
+  color: azure;
+}
+
+.app-sidenav-content {
+  align-items: center;
+}
+
+.mat-sidenav {
+  background-color: #343a40; /* Gris très foncé */
+  color: #fff; /* Blanc */
+}
+
+.navicon {
+  display: inline-block;
+}

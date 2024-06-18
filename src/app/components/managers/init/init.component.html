@@ -1,0 +1,34 @@
+<div class="container">
+    <mat-toolbar class ="hsm">
+        <span class="titleh">Manager Dashboard</span>
+    </mat-toolbar>
+
+  
+
+      <mat-grid-list cols="3" rowHeight="1:1">
+        <mat-grid-tile  *ngFor="let leave of leaves">
+          <div class="card">
+          <mat-card>
+            <div class="card-header">
+                <mat-card-title>{{ leave.leaveType }}</mat-card-title>
+              </div>
+                <mat-card-content>Date de début : {{ leave.startDate | date:'mediumDate' }}</mat-card-content>
+                <mat-card-content>Date de retour : {{ leave.endDate | date:'mediumDate' }}</mat-card-content>
+                <mat-card-content> emplyer :  {{leave.message}}</mat-card-content>
+                <mat-card-content>test : {{leave.idEmployee}}</mat-card-content>
+                <mat-card-content>Employé : {{ leave.user?.lastName }} ({{ leave.user?.username }})</mat-card-content>
+           
+
+                <mat-card-content class="button-container">
+                  <button mat-button color="primary" (click)="handleDecision(leave.processInstanceId,'approved',leave.id)">Approuver</button>
+                  <button mat-button color="warn" (click)="handleDecision(leave.processInstanceId, 'rejected',leave.id)">Rejeter</button>
+                    </mat-card-content>
+                        
+          
+           
+
+          </mat-card>
+        </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+      

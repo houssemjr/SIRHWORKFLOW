@@ -1,0 +1,33 @@
+{
+    "components": [
+      {
+        "values": [
+          {
+            "label": "Approuver",
+            "value": "Approuver"
+          },
+          {
+            "label": "Rejeter",
+            "value": "Rejeter"
+          }
+        ],
+        "label": "Select",
+        "type": "select",
+        "layout": {
+          "row": "Row_0gsk3uf",
+          "columns": 4
+        },
+        "id": "Field_0virdjd",
+        "key": "select_fcz7jo"
+      }
+    ],
+    "type": "default",
+    "id": "Form_0wlteb3",
+    "exporter": {
+      "name": "Camunda Modeler",
+      "version": "5.19.0"
+    },
+    "executionPlatform": "Camunda Platform",
+    "executionPlatformVersion": "7.20.0",
+    "schemaVersion": 14
+  }

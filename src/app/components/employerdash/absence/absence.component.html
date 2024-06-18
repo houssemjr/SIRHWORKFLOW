@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="motif-cards-container-horizontal">
+    <div class="header">
+      <mat-icon>view_list</mat-icon>
+      <h3>Motifs Utilisés</h3>
+    </div>
+    <div class="motif-cards-scroll">
+      <div *ngFor="let motif of motifs" class="motif-card-horizontal">
+        <mat-card class="motif-card" [ngStyle]="{ 'border-left-color': motif.couleur }">
+          <mat-card-header>
+            <mat-card-title>{{ motif.titre }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p><strong>Type:</strong> {{ motif.type }}</p>
+            <p><strong>Solde Initial:</strong> {{ motif.soldeInitial }}</p>
+            <p><strong>Unité:</strong> {{ motif.unite }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <div class="calendar-history-container">
+    <div class="calendar-container">
+      <full-calendar [options]="calendarOptions"></full-calendar>
+    </div>
+    <div class="history-container">
+      <div class="header">
+        <mat-icon>history</mat-icon>
+        <h3>Historique des Congés</h3>
+      </div>
+      <div *ngFor="let leave of userLeaves" class="history-item" [ngStyle]="{ 'border-left-color': leave.motifleave.couleur || 'grey' }">
+        <span>{{ leave.leaveType }} - {{ leave.startDate | date:'shortDate' }} au {{ leave.endDate | date:'shortDate' }}</span>
+      </div>
+    </div>
+  </div>
+</div>

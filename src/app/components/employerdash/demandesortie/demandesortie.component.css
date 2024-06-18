@@ -1,0 +1,114 @@
+.form-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.form-container:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+}
+
+select,
+input[type="date"],
+textarea,
+input[type="file"],
+mat-select,
+mat-input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+select:focus,
+input[type="date"]:focus,
+textarea:focus,
+input[type="file"]:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.1);
+  outline: none;
+}
+
+textarea {
+  height: 100px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.solde-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.solde-box {
+  background: #f8f9fa;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  flex: 1;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.solde-box:last-child {
+  margin-right: 0;
+}
+
+.solde-box p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}

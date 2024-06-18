@@ -1,0 +1,75 @@
+.dialog-container {
+    padding: 0;
+    max-width: 600px;
+    margin: auto;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #28a745; /* Couleur principale adaptée */
+    color: white;
+    padding: 15px 20px;
+  }
+  
+  .dialog-header h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .dialog-header button {
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dialog-content {
+    padding: 20px;
+    background: #f5f5f5; /* Couleur de fond adaptée */
+    color: #333;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .dialog-content p {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  .dialog-content p strong {
+    color: #28a745; /* Couleur principale adaptée */
+  }
+  
+  .dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    background: #ffffff;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .dialog-actions button {
+    margin-left: 10px;
+    padding: 8px 16px;
+    font-size: 14px;
+    background: #28a745; /* Couleur principale adaptée */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .dialog-actions button:hover {
+    background: #218838; /* Couleur principale foncée adaptée */
+  }
+  
+  .mat-dialog-container {
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  

@@ -1,0 +1,59 @@
+[
+      {
+        "label": "Titre",
+        "type": "text",
+        "name": "titre",
+        "placeholder": "Entrez le titre du workflow",
+        "validation": {
+          "required": true,
+          "minLength": 3,
+          "maxLength": 50
+        }
+      },
+      
+    
+      {
+        "label": "Code",
+        "type": "text",
+        "name": "code",
+        "placeholder": "Entrez le code du workflow",
+        "validation": {
+          "required": true,
+          "minLength": 2,
+          "maxLength": 20
+        }
+      },
+    
+   
+      {
+        "label": "Date de Validation",
+        "type": "date",
+        "name": "datevalidation",
+        "placeholder": "Sélectionnez la date de validation",
+        "validation": {
+          "required": true
+        }
+      },
+      {
+        "key": "status",
+        "label": "status :",
+        "type": "checkbox",
+        "options": ["true","false"],
+        "required": true
+    },
+      {
+        "label": "Motif",
+        "type": "select",
+        "name": "motifId",
+        "placeholder": "Sélectionnez le motif associé",
+        "options": ["motif1","motif2"
+          
+        
+        ],
+        "validation": {
+          "required": true
+        }
+      }
+    ]
+  
+  

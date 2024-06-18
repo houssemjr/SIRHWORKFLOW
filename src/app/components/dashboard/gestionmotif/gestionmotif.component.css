@@ -1,0 +1,246 @@
+:root {
+  --primary-color: #28a745;
+  --secondary-color: #f5f5f5;
+  --text-color: #000;
+  --hover-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  --border-radius: 12px;
+  --transition-duration: 0.3s;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--secondary-color);
+  margin: 0;
+  padding: 0;
+}
+
+.motif-cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  background-color: var(--secondary-color);
+}
+
+.motif-cards-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin-bottom: 16px;
+  padding: 8px;
+  gap: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--secondary-color);
+}
+
+.motif-cards-grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.motif-cards-grid::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+}
+
+.motif-card-wrapper {
+  flex: 0 0 auto;
+  transition: transform var(--transition-duration) ease-in-out, box-shadow var(--transition-duration) ease-in-out, background-color var(--transition-duration) ease-in-out;
+}
+
+.motif-card-wrapper:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--hover-shadow);
+}
+
+.motif-card-wrapper.hovered {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.motif-card-wrapper.hovered .motif-card {
+  background-color: inherit;
+  color: inherit;
+}
+
+.motif-card-wrapper.hovered .motif-code-circle {
+  background-color: white;
+  color: inherit;
+}
+
+.motif-card {
+  border-radius: var(--border-radius);
+  border: 1px solid var(--primary-color);
+  overflow: hidden;
+  transition: border-color var(--transition-duration) ease-in-out, box-shadow var(--transition-duration) ease-in-out;
+}
+
+.motif-card:hover {
+  border-color: #218838;
+}
+
+.mat-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0;
+  color: white;
+  padding: 12px;
+  border-bottom: 2px solid #218838;
+}
+
+.card-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.card-title-container mat-card-title {
+  flex: 1;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card-title-container button {
+  margin-left: auto;
+  color: white;
+}
+
+.mat-card-content {
+  background-color: white;
+  padding: 12px;
+  position: relative;
+}
+
+.motif-code-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.mat-card-content p {
+  margin: 4px 0;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.motif-details-container,
+.add-motif-container {
+  width: 100%;
+  padding: 16px;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--hover-shadow);
+  transition: transform var(--transition-duration) ease-in-out, box-shadow var(--transition-duration) ease-in-out;
+}
+
+.motif-details-container:hover,
+.add-motif-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.motif-detail-card {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: transform var(--transition-duration) ease-in-out, box-shadow var(--transition-duration) ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid var(--primary-color); /* Default border color */
+}
+
+.detail-card-header {
+  padding: 12px;
+  background-color: white; /* White background for the header */
+  color: black; /* Black text for the header */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-content {
+  padding: 12px;
+}
+
+.add-motif-button {
+  align-self: flex-end;
+  background-color: #218838;
+  color: white;
+  transition: background-color var(--transition-duration) ease-in-out;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+}
+
+.add-motif-button:hover {
+  background-color: #218838;
+}
+
+.mat-card {
+  color: var(--text-color); /* Couleur du texte dans le contenu de la carte */
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.mat-card-header {
+  color: white; /* Couleur du texte dans le header de la carte */
+}
+
+.mat-card-content {
+  padding: 16px;
+}
+
+.mat-divider {
+  background-color: var(--primary-color);
+  margin: 8px 0;
+}
+
+.details-icon {
+  font-size: 1.5rem;
+  margin-right: 8px;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.motif-card-wrapper {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .motif-cards-container {
+    padding: 8px;
+  }
+
+  .motif-cards-grid {
+    margin-bottom: 8px;
+  }
+
+  .motif-card-wrapper {
+    margin: 4px;
+  }
+
+  .motif-details-container,
+  .add-motif-container {
+    padding: 8px;
+  }
+
+  .add-motif-button {
+    align-self: center;
+    margin-top: 16px;
+  }
+}

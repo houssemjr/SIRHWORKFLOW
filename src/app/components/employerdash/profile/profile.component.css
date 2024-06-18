@@ -1,0 +1,31 @@
+/* profile.component.css */
+.profile-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  background: #f8f9fa;
+}
+
+.profile-detail {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.profile-detail:last-child {
+  border-bottom: none;
+}
+
+h1 {
+  color: #343a40;
+  margin-bottom: 20px;
+}
+.profile-image {
+  width: 100px;  /* ou la taille que vous préférez */
+  height: 100px; /* assurez-vous que la largeur et la hauteur sont les mêmes pour un cercle parfait */
+  border-radius: 50%; /* ceci rend l'image ronde */
+  object-fit: cover; /* garde l'image bien proportionnée */
+  border: 2px solid #ddd; /* ajoute une bordure pour plus de style */
+}

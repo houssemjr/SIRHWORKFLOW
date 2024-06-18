@@ -1,0 +1,15 @@
+[
+    {
+      "key": "intitule",
+      "label": "Intitulé",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "description",
+      "label": "Description",
+      "type": "textarea",
+      "required": true
+    }
+  ]
+  

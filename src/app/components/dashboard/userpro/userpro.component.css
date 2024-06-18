@@ -1,0 +1,33 @@
+.card {
+    border: 1px solid #28a745; /* Vert */
+    border-radius: 8px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    background-color: #28a745; /* Vert */
+    color: #fff; /* Blanc */
+    padding: 10px;
+    border-bottom: 1px solid #218838; /* Vert plus foncé */
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .card-body {
+    padding: 15px;
+  }
+
+  .hsm{
+    margin-left: 0%;
+    position: absolute;
+    background-position-x: left;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between; /* Place les boutons à chaque extrémité du conteneur */
+  }
+  
+  .button-container button {
+    margin-right: 10px; /* Ajoute une marge à droite pour espacer les boutons */
+  }

@@ -1,0 +1,17 @@
+/* Change the color of event titles to gray */
+.fc-event-title {
+    color: gray;
+  }
+  
+  /* Change the color of date numbers in the calendar to gray */
+  .fc-daygrid-day-number {
+    color: gray;
+  }
+  
+  /* Optionally, change the color of other text elements as needed */
+  .fc-toolbar-title,
+  .fc-button,
+  .fc-col-header-cell-cushion {
+    color: gray;
+  }
+  

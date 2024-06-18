@@ -1,0 +1,33 @@
+<div class="container">
+  <h2 class="assign-role-title">
+      <mat-icon class="title-icon">add</mat-icon>
+      Ajouter un rôle :
+  </h2>
+  <br>
+  <app-dynamic-form [apiUrl]="apiUrl" [IdEmployee]="IdEmployee" formName="role-request"></app-dynamic-form>
+  <mat-divider></mat-divider>
+  <br>
+  <div class="assign-role-section">
+      <h2 class="assign-role-title">
+          <mat-icon class="title-icon">person_add</mat-icon>
+          Affecter un Rôle à un Utilisateur :
+      </h2>
+      <mat-form-field class="full-width-form-field" appearance="fill">
+          <mat-label>Utilisateur</mat-label>
+          <mat-select [(ngModel)]="selectedUser">
+              <mat-option *ngFor="let user of users" [value]="user.id">
+                  {{ user.nom }} {{ user.prenom }}
+              </mat-option>
+          </mat-select>
+      </mat-form-field>
+      <mat-form-field class="full-width-form-field" appearance="fill">
+          <mat-label>Rôle</mat-label>
+          <mat-select [(ngModel)]="selectedRole">
+              <mat-option *ngFor="let role of roles" [value]="role.id">
+                  {{ role.intitule }}
+              </mat-option>
+          </mat-select>
+      </mat-form-field>
+      <button mat-raised-button color="primary" class="assign-button" (click)="assignRole()">Affecter</button>
+  </div>
+</div>

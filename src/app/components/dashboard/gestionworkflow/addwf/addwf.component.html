@@ -1,0 +1,36 @@
+<div class="container">
+  <mat-toolbar>
+      <span class="titleh">AJOUT DE WORKFLOW  :</span>
+  </mat-toolbar>
+</div>
+<br>
+
+<app-dsform formName="workflow-request" [apiUrl]="apiUrl" [IdEmployee]="IdEmployee" [formFields]="formFields"></app-dsform>
+
+<div class="assignment-container">
+<div class="assignment-section">
+  <div class="section-title">
+    <h3>Workflows</h3>
+  </div>
+  <mat-list>
+    <mat-list-item *ngFor="let workflow of workflows" (click)="selectedWorkflowId = workflow.id" [class.selected]="selectedWorkflowId === workflow.id">
+      {{ workflow.titre }}
+    </mat-list-item>
+  </mat-list>
+</div>
+
+<div class="assignment-section">
+  <div class="section-title">
+    <h3>Diagrams</h3>
+  </div>
+  <mat-list>
+    <mat-list-item *ngFor="let diagram of diagrams" (click)="selectedDiagramId = diagram.id" [class.selected]="selectedDiagramId === diagram.id">
+      {{ diagram.name }}
+    </mat-list-item>
+  </mat-list>
+</div>
+</div>
+
+<div class="button-container">
+<button mat-raised-button color="primary" (click)="onAssign()" [disabled]="!selectedWorkflowId || !selectedDiagramId">Assigner</button>
+</div>

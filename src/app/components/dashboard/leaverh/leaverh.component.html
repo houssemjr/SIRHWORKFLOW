@@ -1,0 +1,25 @@
+<mat-grid-list cols="3" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let leave of tasks">
+      <div class="card">
+        <mat-card>
+          <div class="card-header">
+            <mat-card-title>{{ leave.leaveType }}</mat-card-title>
+          </div>
+          <mat-card-content>Date de début : {{ leave.startDate | date:'mediumDate' }}</mat-card-content>
+          <mat-card-content>Date de retour : {{ leave.endDate | date:'mediumDate' }}</mat-card-content>
+          <mat-card-content>Message : {{ leave.message }}</mat-card-content>
+          <mat-card-content>Test : {{ leave.IdEmployee }}</mat-card-content>
+          <mat-card-content>Test : {{ leave.taskId }}</mat-card-content>
+
+          <!-- Les propriétés leave.user.lastname et leave.user.username doivent exister dans votre objet -->
+          <mat-card-content>Employé : {{ leave.user?.lastname }} ({{ leave.user?.username }})</mat-card-content>
+  
+          <mat-card-content class="button-container">
+            <button mat-button color="primary" (click)="approve(leave.taskId)">Approuver</button>
+            <button mat-button color="warn">Rejeter</button>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  

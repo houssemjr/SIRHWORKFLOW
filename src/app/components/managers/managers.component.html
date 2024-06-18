@@ -1,0 +1,64 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()" matTooltip="Menu">
+        <mat-icon class="example-icon">menu</mat-icon>
+    </button>
+    <span></span>
+    <span class="example-spacer"></span>
+
+    <button mat-button routerLink='/managersdash'><p class="bts">Dashboard</p></button>
+    <button mat-button routerLink='/managersdash/profile'><p class="bts">Employees</p></button>
+    <button mat-button routerLink="/dashboard/reports"><p class="bts">Reports</p></button>
+    
+    <span class="example-spacer"></span>
+    <button mat-icon-button matTooltip="My Account" [matMenuTriggerFor]="userAccountMenu" class="example-icon">
+        <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #userAccountMenu [overlapTrigger]="false" yPosition="below">
+        <button mat-menu-item routerLink="#">
+            <mat-icon>person</mat-icon><span>My Account</span>
+        </button>
+        <button mat-menu-item routerLink="#">
+            <mat-icon>settings</mat-icon><span>Settings</span>
+        </button>
+        <button mat-menu-item routerLink="#">
+            <mat-icon>help</mat-icon><span>Help</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item>
+            <mat-icon>exit_to_app</mat-icon>Logout
+        </button>
+    </mat-menu>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" (click)="logouts()">
+        <mat-icon>logout</mat-icon>
+    </button>
+</mat-toolbar>
+
+<mat-sidenav-container class="app-container" color="primary">
+    <mat-sidenav #sidenav mode="side" class="custom-sidenav app-sidenav" opened="true">
+        <mat-nav-list class="custom-nav-list">
+            <mat-list-item routerLink="/managersdash" class="nav-list-item">
+                <mat-icon>dashboard</mat-icon><span class="nav-text">Dashboard</span>
+            </mat-list-item>
+            <mat-list-item routerLink="/managersdash/profile" class="nav-list-item">
+                <mat-icon>people</mat-icon><span class="nav-text">Profil</span>
+            </mat-list-item>
+            <mat-list-item routerLink="/managersdash/update" class="nav-list-item">
+                <mat-icon>assignment_ind</mat-icon><span class="nav-text">Update profil</span>
+            </mat-list-item>
+            <mat-list-item routerLink="/dashboard/assignrole" class="nav-list-item">
+                <mat-icon>how_to_reg</mat-icon><span class="nav-text">Historique</span>
+            </mat-list-item>
+            <mat-list-item routerLink="/managersdash/demandencours" class="nav-list-item">
+                <mat-icon>pending</mat-icon><span class="nav-text">Demande de Conge</span>
+            </mat-list-item>
+            <mat-list-item routerLink="/managersdash/permiss" class="nav-list-item">
+                <mat-icon>event</mat-icon><span class="nav-text">Demande de permission</span>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet>
+            <div class="app-sidenav-content"></div>
+        </router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,60 @@
+<div class="gestion-collab-container">
+  <div class="cards-navigation">
+    <button class="nav-button" (click)="scrollLeft()">&#9664;</button>
+    <div class="cards-container" #cardsContainer>
+      <div *ngFor="let equipe of equipes" class="card" (click)="selectEquipe(equipe)">
+        <mat-card class="orgchart-card">
+          <mat-card-header>
+            <div mat-card-avatar class="avatar">
+              <mat-icon>group</mat-icon>
+            </div>
+            <mat-card-title>{{ equipe.titre }}</mat-card-title>
+            <mat-card-subtitle>Manager: {{ equipe.rattachement }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>Membres:</p>
+            <div class="members-container">
+              <div *ngFor="let user of equipe.members.slice(0, 3)" class="member-photo">
+                <img [src]="getUserPhotoUrl(user.photodeProfil)" alt="{{ user.nom }} {{ user.prenom }}">
+              </div>
+              <div *ngIf="equipe.members.length > 3" class="more-members">
+                +{{ equipe.members.length - 3 }} more
+              </div>
+            </div>
+            <p *ngIf="!equipe.members || equipe.members.length === 0">No members available</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <button class="nav-button" (click)="scrollRight()">&#9654;</button>
+  </div>
+  <div class="user-details-column">
+    <ng-container *ngIf="selectedEquipe; else noData">
+      <mat-card class="ccard">
+        <div class="card-headers">
+          <mat-card-title>Détails de l'équipe sélectionnée</mat-card-title>
+          <button mat-raised-button color="primary" class="add-team-button">Ajouter Membre</button>
+        </div>
+        <mat-card-content class="cardtest">
+          <p><strong>Nom:</strong> {{ selectedEquipe.titre }}</p>
+          <p><strong>Manager:</strong> {{ selectedEquipe.rattachement }}</p>
+          <p><strong>Membres:</strong></p>
+          <ul *ngIf="selectedEquipe.members && selectedEquipe.members.length > 0">
+            <li *ngFor="let user of selectedEquipe.members">
+              <div class="member-details">
+                <div class="member-photo-small">
+                  <img [src]="getUserPhotoUrl(user.photodeProfil)" alt="{{ user.nom }} {{ user.prenom }}">
+                </div>
+                <span>{{ user.nom }} {{ user.prenom }}</span>
+              </div>
+            </li>
+          </ul>
+          <p *ngIf="!selectedEquipe.members || selectedEquipe.members.length === 0">No members available</p>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
+    <ng-template #noData>
+      <p>No user data available.</p>
+    </ng-template>
+  </div>
+</div>

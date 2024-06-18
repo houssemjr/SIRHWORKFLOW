@@ -1,0 +1,71 @@
+.container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    position: relative;
+  }
+  
+  h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: #3498db;
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
+  
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #666;
+  }
+  
+  .empty-state mat-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+  
+  .demande-card {
+    margin-bottom: 20px;
+  }
+  
+  mat-card {
+    border-left: 5px solid;
+    padding: 10px;
+  }
+  
+  mat-card-header {
+    background: #f5f5f5;
+  }
+  
+  mat-card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  mat-card-subtitle {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  mat-card-content {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  

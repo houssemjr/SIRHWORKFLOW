@@ -1,0 +1,40 @@
+.form-field {
+    display: inline-block;
+    width: 30%;
+    margin-right: 1%;
+    margin-left: 10%;
+  }
+  
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  
+  .form-row > .form-field:last-child {
+    margin-right: 0;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .form-subtitle {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .form-subtitle h3 {
+    margin: 10;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  .submit-button {
+    display: block;
+    margin: 20px auto 0;
+    text-align: center;
+    background-color: rgb(20, 149, 20);
+  }
+  
+  

@@ -1,0 +1,79 @@
+<div *ngIf="user; else noData" class="profile-container">
+  <mat-card class="profile-card">
+    <div class="profile-header">
+      <div class="profile-picture">
+        <img [src]="imagePreview || 'assets/default-avatar.png'" alt="Photo de profil" class="profile-img">
+      </div>
+      <div class="profile-basic-info">
+        <h2>{{ user.nom }} {{ user.prenom }}</h2>
+        <p class="profile-title">{{ user.poste }}</p>
+        <p class="profile-email"><mat-icon>email</mat-icon> {{ user.email }}</p>
+        <p class="profile-phone"><mat-icon>phone</mat-icon> {{ user.telephone }}</p>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <div class="profile-details">
+        <div class="profile-section">
+          <h3>Informations Personnelles</h3>
+          <div class="profile-detail-item">
+            <span class="profile-detail-label">Nom d'utilisateur:</span>
+            <span class="profile-detail-value">{{ user.username }}</span>
+          </div>
+          <div class="profile-detail-item">
+            <span class="profile-detail-label">CIN:</span>
+            <span class="profile-detail-value">{{ user.cin }}</span>
+          </div>
+          <div class="profile-detail-item">
+            <span class="profile-detail-label">Adresse:</span>
+            <span class="profile-detail-value">{{ user.adresse }}</span>
+          </div>
+          <div class="profile-detail-item">
+            <span class="profile-detail-label">Genre:</span>
+            <span class="profile-detail-value">{{ user.genre }}</span>
+          </div>
+          <div class="profile-detail-item">
+            <span class="profile-detail-label">Situation familiale:</span>
+            <span class="profile-detail-value">{{ user.sitf }}</span>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="profile-section">
+          <h3>Informations Professionnelles</h3>
+          <div class="profile-detail-item">
+            <span class="profile-detail-label">Équipe:</span>
+            <span class="profile-detail-value">{{ user.equipe }}</span>
+          </div>
+          <div class="profile-detail-item">
+            <span class="profile-detail-label">Manager:</span>
+            <span class="profile-detail-value">{{ user.manager }}</span>
+          </div>
+          <div class="profile-detail-item">
+            <span class="profile-detail-label">Matricule:</span>
+            <span class="profile-detail-value">{{ user.matricule }}</span>
+          </div>
+          <div class="profile-detail-item">
+            <span class="profile-detail-label">Date de recrutement:</span>
+            <span class="profile-detail-value">{{ user.dateRecrutement | date }}</span>
+          </div>
+          <div class="profile-detail-item">
+            <span class="profile-detail-label">Diplôme:</span>
+            <span class="profile-detail-value">{{ user.diplome }}</span>
+          </div>
+          <div class="profile-detail-item">
+            <span class="profile-detail-label">Seniorité:</span>
+            <span class="profile-detail-value">{{ user.seniorite }}</span>
+          </div>
+          <div class="profile-detail-item">
+            <span class="profile-detail-label">Ancienneté:</span>
+            <span class="profile-detail-value">{{ user.anciennete }}</span>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<ng-template #noData>
+  <p class="no-data-message">No user data available.</p>
+</ng-template>

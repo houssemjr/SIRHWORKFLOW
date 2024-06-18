@@ -1,0 +1,15 @@
+.titleh{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: yellowgreen 5ch;
+    width: 100%; /* Prendre toute la largeur */
+    margin: 0; /* Supprimer les marges */
+
+}
+table {
+    width: 100%;
+  }
+  
+  mat-toolbar {
+    width: 100%; /* Prendre toute la largeur */
+    margin: 0; /* Supprimer les marges */
+  }

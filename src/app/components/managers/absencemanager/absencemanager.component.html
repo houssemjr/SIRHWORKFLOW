@@ -1,0 +1,44 @@
+<div class="dashboard">
+    <div class="row top-row">
+      <div class="container doughnut-container">
+        <h2><mat-icon>pie_chart</mat-icon> Taux de Présence Aujourd'hui</h2>
+        <app-taux-absence-aujourdhui></app-taux-absence-aujourdhui>
+      </div>
+      <div class="container list-container">
+        <h2><mat-icon>list</mat-icon> Liste des Absents Aujourd'hui</h2>
+        <div class="absent-list">
+          <div *ngFor="let absent of absents" class="absent-card">
+            <img [src]="absent.photoUrl" class="profile-pic" alt="{{ absent.name }}">
+            <div class="absent-info">
+              <h3>{{ absent.name }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row bottom-row">
+      <div class="container calendar-container">
+        <h2><mat-icon>calendar_today</mat-icon> Calendrier des Absences</h2>
+        <app-calendrier-rh></app-calendrier-rh>
+      </div>
+      <div class="container requests-container">
+        <h2><mat-icon>pending</mat-icon> Demandes en Cours</h2>
+        <div class="requests-list">
+          <mat-card *ngFor="let request of pendingRequests" class="request-card">
+            <mat-card-content class="request-card-content">
+              <div class="request-card-header">
+                <img [src]="request.photoUrl" class="profile-pic" alt="{{ request.name }}">
+                <div class="request-info">
+                  <h3>{{ request.name }}</h3>
+                  <p>{{ request.leaveType }}</p>
+                </div>
+              </div>
+              <div class="request-card-footer">
+                <p>Du {{ request.startDate | date:'shortDate' }} au {{ request.endDate | date:'shortDate' }}</p>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>

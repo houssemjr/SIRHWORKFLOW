@@ -1,0 +1,40 @@
+<div class="container">
+    <mat-toolbar>
+        <span class="titleh">Employees Management</span>
+    </mat-toolbar>
+
+    </div>
+    <div class="container">
+
+       <mat-card class="cardemployer">
+        <mat-card-subtitle class="csubtitle"> Ajouter Employer :</mat-card-subtitle>
+
+    <form class="fe"  [formGroup]="form">
+        <mat-form-field class="ffe">
+            <mat-label>username</mat-label>
+            <input matInput placeholder="userName" name="userName"  formControlName="userName" required>
+          </mat-form-field>
+  
+        <mat-form-field class="ffe">
+          <mat-label>Nom</mat-label>
+          <input matInput placeholder="lastName" name="lastName"  formControlName="lastName" required>
+        </mat-form-field>
+        <mat-form-field class="ffe">
+          <mat-label>Prénom</mat-label>
+          <input matInput placeholder="firstName" name="firstName" formControlName="firstName" required>
+        </mat-form-field>
+
+        <mat-form-field class="ffe">
+          <mat-label>Adresse Email</mat-label>
+          <input matInput type="email" placeholder="emailId"  name="emailId"  formControlName="emailId" required>
+        </mat-form-field>
+        <mat-form-field class="ffe">
+            <mat-label>password</mat-label>
+            <input matInput placeholder="password" name="password"  type="password" formControlName="password" required>
+          </mat-form-field>
+       
+          <button mat-raised-button color="primary" (click)="addEmployee()" class="buttonadd">Ajouter Employer</button>
+        </form>
+    </mat-card> 
+    </div>
+   

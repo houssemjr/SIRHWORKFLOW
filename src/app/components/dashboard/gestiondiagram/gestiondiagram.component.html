@@ -1,0 +1,33 @@
+<div class="gestion-collab-container">
+  <div class="cards-container">
+    <mat-card *ngFor="let diagram of diagrams" (click)="onDiagramChange(diagram)" [class.selected]="selectedDiagram?.id === diagram.id" class="card">
+      <mat-card-header class="card-header">
+        <mat-card-title>WORKFLOW DIAGRAM</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>{{ diagram.name }}</mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="user-details-column">
+    <mat-toolbar class="card-headers">
+      <span class="titleh">Designer BPMN 2.0 :</span>
+    </mat-toolbar>
+
+    <form [formGroup]="diagramForm" (ngSubmit)="saveDiagram()" class="cardtest">
+      <div class="form-fields">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Nom du Diagramme</mat-label>
+          <input matInput formControlName="diagramName" required>
+          <mat-error *ngIf="diagramForm.controls['diagramName'].hasError('required')">
+            Le nom du diagramme est requis
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-buttons">
+        <button mat-raised-button color="primary" type="submit" class="add-button">Save Diagram</button>
+        <button mat-raised-button color="accent" type="button" (click)="createNewDiagram()">Create New Diagram</button>
+      </div>
+    </form>
+    <div #canvas class="canvas" id="canvas"></div>
+  </div>
+</div>

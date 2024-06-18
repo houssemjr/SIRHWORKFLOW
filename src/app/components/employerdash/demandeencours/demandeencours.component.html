@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>Demandes en Cours</h2>
+    <div *ngIf="demandesEnCours.length === 0" class="empty-state">
+      <mat-icon>info</mat-icon>
+      <p>Aucune demande en cours</p>
+    </div>
+    <div *ngFor="let demande of demandesEnCours" class="demande-card">
+      <mat-card [ngStyle]="{ 'border-left-color': getMotifColor(demande) }">
+        <mat-card-header>
+          <mat-card-title>{{ demande.leaveType }}</mat-card-title>
+          <mat-card-subtitle>{{ demande.startDate | date:'shortDate' }} - {{ demande.endDate | date:'shortDate' }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ demande.message }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="voirDetails(demande)">Voir Détails</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  

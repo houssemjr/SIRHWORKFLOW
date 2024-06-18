@@ -1,0 +1,21 @@
+[
+    {
+        "key": "titre",
+        "label": "Titre",
+        "type": "text",
+        "required": true
+    },
+    {
+        "key": "ratachement",
+        "label": "Rattachement",
+        "type": "text",
+        "required": true
+    },
+    {
+        "key": "manager",
+        "label": "Manager",
+        "type": "select",
+        "options": ["Manager 1", "Manager 2", "Manager 3"],
+        "required": true
+    }
+]

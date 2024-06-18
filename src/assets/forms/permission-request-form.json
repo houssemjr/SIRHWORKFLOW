@@ -1,0 +1,44 @@
+[
+  {
+    "key": "motif",
+    "label": "Motif",
+    "type": "text",
+    "required": true
+  },
+  {
+    "key": "nombreheures",
+    "label": "Nombre d'heures",
+    "type": "text",
+    "required": true
+  },
+  {
+    "key": "datepermission",
+    "label": "Date de permission",
+    "type": "date",
+    "required": true
+  },
+  {
+    "key": "heuredebut",
+    "label": "Heure de début",
+    "type": "select",
+    "options": [
+      "8", "9", "10", "11", "15", "16", "17", "18"
+    ],
+    "required": true
+  },
+  {
+    "key": "heurefin",
+    "label": "Heure de fin",
+    "type": "select",
+    "options": [
+      "8", "9", "10", "11", "15", "16", "17", "18"
+    ],
+    "required": true
+  },
+  {
+    "key": "message",
+    "label": "Message (Optionnel)",
+    "type": "textarea",
+    "required": false
+  }
+]

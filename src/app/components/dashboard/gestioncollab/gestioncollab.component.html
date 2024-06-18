@@ -1,0 +1,64 @@
+<div class="gestion-collab-container">
+  <div class="user-cards-column">
+    <button mat-fab color="primary" class="add-button" (click)="addUser()">+</button>
+    <div class="scroll-buttons">
+      <button class="nav-button" (click)="scrollUp()">&#9650;</button>
+    </div>
+    <div class="cards-container" #cardsContainer>
+      <div *ngFor="let user of users" class="card" (click)="selectUser(user)">
+        <mat-card class="orgchart-card">
+          <mat-card-header>
+            <div mat-card-avatar class="avatar">
+              <img [src]="getUserPhotoUrl(user.photodeProfil)" alt="{{ user.nom }} {{ user.prenom }}">
+            </div>
+            <mat-card-title>Info Collab :</mat-card-title>
+            <mat-card-subtitle>{{ user.nom }} {{ user.prenom }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p><strong>Poste:</strong> {{ user.poste }}</p>
+            <p><strong>Matricule:</strong> {{ user.matricule }}</p>
+            <p><strong>Équipe:</strong> {{ user.equipe }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div class="scroll-buttons scroll-down">
+      <button class="nav-button" (click)="scrollDown()">&#9660;</button>
+    </div>
+  </div>
+  <div class="user-details-column">
+    <ng-container *ngIf="showForm; else userDetails">
+      <app-userform></app-userform>
+    </ng-container>
+    <ng-template #userDetails>
+      <mat-card class="ccard" *ngIf="selectedUser">
+        <div class="card-headers">
+          <mat-card-title>Détails du Collab :</mat-card-title>
+          <div class="avatar-details">
+            <img [src]="getUserPhotoUrl(selectedUser.photodeProfil)" alt="{{ selectedUser.nom }} {{ selectedUser.prenom }}">
+          </div>
+        </div>
+        <mat-card-content class="cardtest">
+          <p><strong>Username:</strong> {{ selectedUser.username }}</p>
+          <p><strong>Nom:</strong> {{ selectedUser.nom }}</p>
+          <p><strong>Prénom:</strong> {{ selectedUser.prenom }}</p>
+          <p><strong>CIN:</strong> {{ selectedUser.cin }}</p>
+          <p><strong>Téléphone:</strong> {{ selectedUser.telephone }}</p>
+          <p><strong>Adresse:</strong> {{ selectedUser.adresse }}</p>
+          <p><strong>Situation familiale:</strong> {{ selectedUser.sitf }}</p>
+          <p><strong>Email:</strong> {{ selectedUser.email }}</p>
+          <p><strong>Genre:</strong> {{ selectedUser.genre }}</p>
+          <p><strong>Poste:</strong> {{ selectedUser.poste }}</p>
+          <p><strong>Matricule:</strong> {{ selectedUser.matricule }}</p>
+          <p><strong>Date de recrutement:</strong> {{ selectedUser.dateRecrutement | date: 'mediumDate' }}</p>
+          <p><strong>Diplôme:</strong> {{ selectedUser.diplome }}</p>
+          <p><strong>Seniorité:</strong> {{ selectedUser.seniorite }}</p>
+          <p><strong>Ancienneté:</strong> {{ selectedUser.anciennete }}</p>
+        </mat-card-content>
+      </mat-card>
+    </ng-template>
+  </div>
+</div>
+<ng-template #noData>
+  <p>No user data available.</p>
+</ng-template>

@@ -1,0 +1,89 @@
+<nav class="navbar">
+    <div class="navbar-left">
+        <button mat-icon-button (click)="sidenav.toggle()" matTooltip="Menu">
+            <mat-icon class="example-icon">menu</mat-icon>
+        </button>
+    </div>
+    <div class="navbar-center">
+        <a mat-button routerLink='/dashboard'><p class="nav-item">Dashboard</p></a>
+        <a mat-button routerLink='/dashboard/collabs'><p class="nav-item">Employees</p></a>
+        <a mat-button routerLink='/dashboard/gequipes'><p class="nav-item">Equipes</p></a>
+    </div>
+    <div class="navbar-right">
+        <button mat-icon-button matTooltip="My Account" [matMenuTriggerFor]="userAccountMenu" class="example-icon">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #userAccountMenu [overlapTrigger]="false" yPosition="below">
+            <button mat-menu-item routerLink="#">
+                <mat-icon>person</mat-icon><span>My Account</span>
+            </button>
+            <button mat-menu-item routerLink="#">
+                <mat-icon>settings</mat-icon><span>Settings</span>
+            </button>
+            <button mat-menu-item routerLink="#">
+                <mat-icon>help</mat-icon><span>Help</span>
+            </button>
+            <mat-divider></mat-divider>
+            <button mat-menu-item (click)="logouts()">
+                <mat-icon>exit_to_app</mat-icon>Logout
+            </button>
+        </mat-menu>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" (click)="logouts()">
+            <mat-icon>logout</mat-icon>
+        </button>
+    </div>
+</nav>
+
+<mat-sidenav-container class="app-container">
+    <mat-sidenav #sidenav mode="side" class="custom-sidenav app-sidenav" opened="true">
+        <mat-nav-list class="custom-nav-list">
+            <mat-list-item routerLink="/dashboard" class="nav-list-item">
+                <mat-icon>dashboard</mat-icon><span>Dashboard</span>
+            </mat-list-item>
+            <mat-list-item routerLink="/dashboard/collabs" class="nav-list-item">
+                <mat-icon>people</mat-icon><span>Collaborateurs</span>
+            </mat-list-item>
+            <mat-list-item routerLink="/dashboard/userform" class="nav-list-item">
+                <mat-icon>add</mat-icon><span>Ajouter</span>
+            </mat-list-item>
+            <mat-list-item routerLink="/dashboard/roles" class="nav-list-item">
+                <mat-icon>assignment_ind</mat-icon><span>Ajouter un rôle</span>
+            </mat-list-item>
+            <mat-list-item routerLink="/dashboard/rhleaves" class="nav-list-item">
+                <mat-icon>beach_access</mat-icon><span>Demandes de congés</span>
+            </mat-list-item>
+            <mat-list-item routerLink="/dashboard/addwf" class="nav-list-item">
+                <mat-icon>timeline</mat-icon><span>UI Workflow</span>
+            </mat-list-item>
+            <mat-list-item routerLink="/dashboard/gdiag" class="nav-list-item">
+                <mat-icon>insert_chart</mat-icon><span>Diagrammes</span>
+            </mat-list-item>
+            <mat-list-item routerLink="/dashboard/gwf" class="nav-list-item">
+                <mat-icon>widgets</mat-icon><span>Gestion workflow</span>
+            </mat-list-item>
+            <mat-list-item routerLink="/dashboard/gmotif" class="nav-list-item">
+                <mat-icon>category</mat-icon><span>Motifs</span>
+            </mat-list-item>
+            <mat-list-item routerLink="/dashboard/addmotif" class="nav-list-item">
+                <mat-icon>add_circle</mat-icon><span>Ajouter un motif</span>
+            </mat-list-item>
+            <mat-list-item routerLink="/dashboard/gequipes" class="nav-list-item">
+                <mat-icon>group</mat-icon><span>Equipes</span>
+            </mat-list-item>
+            <mat-list-item routerLink="/dashboard/addequipe" class="nav-list-item">
+                <mat-icon>add_circle_outline</mat-icon><span>Ajouter une équipe</span>
+            </mat-list-item>
+            <mat-list-item routerLink="/dashboard/orgchart" class="nav-list-item">
+                <mat-icon>insert_chart</mat-icon><span>organigramme</span>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet>
+            <div class="app-sidenav-content">
+            </div>
+        </router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+

@@ -1,0 +1,22 @@
+[
+    {
+      "key": "code",
+      "label": "code",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "titre",
+      "label": "titre",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "datevalidite",
+      "label": "date de validite",
+      "type": "date",
+      "required": true
+    }
+    
+  ]
+  

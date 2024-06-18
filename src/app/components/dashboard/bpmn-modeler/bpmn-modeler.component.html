@@ -1,0 +1,32 @@
+<div class="container">
+  <mat-toolbar>
+    <span class="titleh">ADD WORKFLOW :</span>
+  </mat-toolbar>
+  <br>
+  <app-dynamic-form formName="bpmn-request" [apiUrl]="apiUrl" [IdEmployee]="IdEmployee"></app-dynamic-form>
+
+  <mat-toolbar>
+    <span class="titleh">Designer BPMN 2.0 :</span>
+  </mat-toolbar>
+  <div class="container">
+    <br>
+    <form [formGroup]="diagramForm" (ngSubmit)="saveDiagram()">
+      <mat-form-field appearance="fill">
+        <mat-label>Nom du Diagramme</mat-label>
+        <input matInput formControlName="diagramName" required>
+        <mat-error *ngIf="diagramForm.controls['diagramName'].hasError('required')">
+          Le nom du diagramme est requis
+        </mat-error>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button color="primary" type="button" (click)="createNewDiagram()">Create New Diagram</button>
+        <button mat-raised-button color="primary" type="submit">Save Diagram</button>
+        <input type="file" (change)="onFileUpload($event)" accept=".bpmn, .xml" />
+      </div>
+    </form>
+    <div #canvas style="height: 80vh; width: 100%; border: 1px solid #000;"></div>
+  </div>
+</div>
+<ng-template #noData>
+  <p>No workflow data available.</p>
+</ng-template>

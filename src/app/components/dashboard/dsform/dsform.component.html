@@ -1,0 +1,29 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <div class="form-field" *ngFor="let field of formFields">
+        <ng-container [ngSwitch]="field.type">
+          <mat-form-field *ngSwitchCase="'text'" class="full-width">
+            <mat-label>{{field.label}}</mat-label>
+            <input matInput [formControlName]="field.name" [placeholder]="field.placeholder">
+          </mat-form-field>
+          <mat-form-field *ngSwitchCase="'date'" class="full-width">
+            <mat-label>{{field.label}}</mat-label>
+            <input matInput [matDatepicker]="picker" [formControlName]="field.name" [placeholder]="field.placeholder">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field *ngSwitchCase="'select'" class="full-width">
+            <mat-label>{{field.label}}</mat-label>
+            <mat-select [formControlName]="field.name" [placeholder]="field.placeholder">
+              <mat-option *ngFor="let option of field.options" [value]="option.value">{{option.label}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-checkbox *ngSwitchCase="'checkbox'" [formControlName]="field.name" class="full-width">
+            {{field.label}}
+          </mat-checkbox>
+        </ng-container>
+      </div>
+    </div>
+    <button mat-raised-button color="primary" type="submit" class="submit-button">{{submitLabel}}</button>
+  </form>
+  

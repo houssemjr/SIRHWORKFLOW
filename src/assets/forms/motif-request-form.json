@@ -1,0 +1,62 @@
+[
+   
+    {
+        "key": "titre",
+        "label": "Titre",
+        "type": "text",
+        "required": true
+    },
+    {
+        "key": "validite",
+        "label": "Validité",
+        "type": "date",
+        "required": true
+    },
+    {
+        "key": "couleur",
+        "label": "Couleur",
+        "type": "color",
+        "required": true
+    },
+    {
+        "key": "workflow",
+        "label": "Workflow",
+        "type": "select",
+        "options": ["Workflow 1", "Workflow 2", "Workflow 3"],
+        "required": true
+    },
+    {
+        "key": "type",
+        "label": "Type",
+        "type": "select",
+        "options": ["Type 1", "Type 2", "Type 3"],
+        "required": true
+    },
+  
+    {
+        "key": "soldeInitial",
+        "label": "Solde Initial",
+        "type": "number",
+        "required": true
+    },
+    {
+        "type": "separator"
+    },
+    {
+        "type": "separator"
+    },
+    {
+        "key": "unite",
+        "label": "Unité",
+        "type": "select",
+        "options": ["Jours", "Heure", "Unitaire"],
+        "required": true
+    },
+    {
+        "key": "depassementAutorise",
+        "label": "Dépassement Autorisé",
+        "type": "checkbox",
+        "options": ["true", "false"],
+        "required": true
+    }
+]

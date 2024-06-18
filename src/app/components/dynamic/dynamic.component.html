@@ -1,0 +1,48 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div *ngFor="let pair of getFieldPairs()" class="form-row">
+    <div *ngFor="let field of pair" class="form-field">
+      <!-- Text Input Field -->
+      <mat-form-field *ngIf="field.type === 'text'" appearance="fill" class="full-width">
+        <mat-label>{{ field.label }}</mat-label>
+        <input matInput [formControlName]="field.key" [type]="field.type">
+        <mat-error *ngIf="form.get(field.key)?.errors?.['required']">
+          {{ field.label }} is required.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Textarea Field -->
+      <mat-form-field *ngIf="field.type === 'textarea'" appearance="fill" class="full-width">
+        <mat-label>{{ field.label }}</mat-label>
+        <textarea matInput [formControlName]="field.key"></textarea>
+        <mat-error *ngIf="form.get(field.key)?.errors?.['required']">
+          {{ field.label }} is required.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Datepicker Field -->
+      <mat-form-field *ngIf="field.type === 'date'" appearance="fill" class="full-width">
+        <mat-label>{{ field.label }}</mat-label>
+        <input matInput [matDatepicker]="picker" [formControlName]="field.key">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker="matDatepicker"></mat-datepicker>
+        <mat-error *ngIf="form.get(field.key)?.errors?.['required']">
+          {{ field.label }} is required.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Select Field -->
+      <mat-form-field *ngIf="field.type === 'select'" appearance="fill" class="full-width">
+        <mat-label>{{ field.label }}</mat-label>
+        <mat-select [formControlName]="field.key">
+          <mat-option *ngFor="let option of field.options" [value]="option">{{ option }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get(field.key)?.errors?.['required']">
+          {{ field.label }} is required.
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- Submit Button -->
+  <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Submit</button>
+</form>
