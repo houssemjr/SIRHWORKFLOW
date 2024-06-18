@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1ckz2xv" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.19.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <error id="Error_0sb1onn" name="moremanager" />
+  <signal id="Signal_2f0a0ct" name="signalm1" />
+  <error id="Error_0uf2jdr" name="errorm1" errorCode="errormanager" />
+  <message id="Message_1a4e13q" name="gotorh" />
+  <collaboration id="Collaboration_0qpuwmg">
+    <participant id="Participant_116b559" name="Demande de conge" processRef="demande_conge" />
+  </collaboration>
+  <process id="demande_conge" name="Processus de demande de congé" isExecutable="true" camunda:historyTimeToLive="180">
+    <laneSet id="LaneSet_1nr0zus">
+      <lane id="Lane_1xggfkd">
+        <flowNodeRef>start</flowNodeRef>
+        <flowNodeRef>soumission_demande</flowNodeRef>
+        <flowNodeRef>end</flowNodeRef>
+      </lane>
+      <lane id="Lane_08xsh9r">
+        <flowNodeRef>Gateway_1eneqt9</flowNodeRef>
+        <flowNodeRef>Gateway_1rv09fi</flowNodeRef>
+        <flowNodeRef>manager_approval</flowNodeRef>
+        <flowNodeRef>Activity_0igrn8t</flowNodeRef>
+      </lane>
+      <lane id="Lane_0d560s5">
+        <flowNodeRef>Activity_1y1n7u6</flowNodeRef>
+        <flowNodeRef>Event_0ehw7td</flowNodeRef>
+      </lane>
+    </laneSet>
+    <startEvent id="start" name="Début">
+      <outgoing>flow1</outgoing>
+    </startEvent>
+    <userTask id="soumission_demande" name="Soumission de la demande de congé">
+      <extensionElements>
+        <camunda:formData>
+          <camunda:formField id="type_conge" label="Type de congé" type="string" />
+          <camunda:formField id="date_debut" label="Date de début" type="date" />
+          <camunda:formField id="date_fin" label="Date de fin" type="date" />
+          <camunda:formField id="managers" label="m" type="long" defaultValue="1" />
+        </camunda:formData>
+      </extensionElements>
+      <incoming>flow1</incoming>
+      <outgoing>flow2</outgoing>
+    </userTask>
+    <sequenceFlow id="flow1" sourceRef="start" targetRef="soumission_demande" />
+    <sequenceFlow id="flow2" sourceRef="soumission_demande" targetRef="manager_approval" />
+    <sequenceFlow id="Flow_1uz8i58" sourceRef="manager_approval" targetRef="Gateway_1eneqt9" />
+    <sequenceFlow id="Flow_0pulhxw" sourceRef="Gateway_1eneqt9" targetRef="end">
+      <conditionExpression xsi:type="tFormalExpression">#{decisionmanager=="decline"}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_1pa6mbl" sourceRef="Gateway_1eneqt9" targetRef="Gateway_1rv09fi">
+      <conditionExpression xsi:type="tFormalExpression">#{decisionmanager=="approve"}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_1b5tmrl" sourceRef="Gateway_1rv09fi" targetRef="Activity_1y1n7u6">
+      <conditionExpression xsi:type="tFormalExpression">#{decisionmanager=="approve" &amp;&amp; managers==1}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_0gm7a3k" sourceRef="Gateway_1rv09fi" targetRef="Activity_0igrn8t">
+      <conditionExpression xsi:type="tFormalExpression">#{decisionmanager=="approve" &amp;&amp; managers&gt;1}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="Flow_0y8gapv" sourceRef="Activity_0igrn8t" targetRef="Activity_1y1n7u6" />
+    <sequenceFlow id="Flow_0y5wvky" sourceRef="Activity_1y1n7u6" targetRef="Event_0ehw7td" />
+    <subProcess id="Activity_0igrn8t" name="">
+      <incoming>Flow_0gm7a3k</incoming>
+      <outgoing>Flow_0y8gapv</outgoing>
+      <userTask id="Activity_1b4kgmk" name="tt">
+        <extensionElements>
+          <camunda:formData>
+            <camunda:formField id="rhdecision" label="rhdeccision" type="string" />
+          </camunda:formData>
+        </extensionElements>
+        <incoming>Flow_08ldthn</incoming>
+        <outgoing>Flow_0167a80</outgoing>
+      </userTask>
+      <sequenceFlow id="Flow_08ldthn" sourceRef="Event_0jairgh" targetRef="Activity_1b4kgmk" />
+      <startEvent id="Event_0jairgh" name="need m">
+        <outgoing>Flow_08ldthn</outgoing>
+      </startEvent>
+      <endEvent id="Event_1ej3w25">
+        <incoming>Flow_0167a80</incoming>
+      </endEvent>
+      <sequenceFlow id="Flow_0167a80" sourceRef="Activity_1b4kgmk" targetRef="Event_1ej3w25" />
+    </subProcess>
+    <exclusiveGateway id="Gateway_1eneqt9">
+      <incoming>Flow_1uz8i58</incoming>
+      <outgoing>Flow_0pulhxw</outgoing>
+      <outgoing>Flow_1pa6mbl</outgoing>
+    </exclusiveGateway>
+    <exclusiveGateway id="Gateway_1rv09fi">
+      <incoming>Flow_1pa6mbl</incoming>
+      <outgoing>Flow_1b5tmrl</outgoing>
+      <outgoing>Flow_0gm7a3k</outgoing>
+    </exclusiveGateway>
+    <userTask id="manager_approval" name="Approbation par le manager" camunda:candidateGroups="mss-managers">
+      <extensionElements>
+        <camunda:taskListener class="com.mss.workflow.Listners.TaskCreationListener" event="create" />
+        <camunda:formData>
+          <camunda:formField id="decisionmanager" label="Decision" type="enum" defaultValue="approve">
+            <camunda:value id="approve" name="Approve" />
+            <camunda:value id="decline" name="Decline" />
+          </camunda:formField>
+        </camunda:formData>
+      </extensionElements>
+      <incoming>flow2</incoming>
+      <outgoing>Flow_1uz8i58</outgoing>
+    </userTask>
+    <userTask id="Activity_1y1n7u6" name="RH APPROVE">
+      <incoming>Flow_1b5tmrl</incoming>
+      <incoming>Flow_0y8gapv</incoming>
+      <outgoing>Flow_0y5wvky</outgoing>
+    </userTask>
+    <endEvent id="Event_0ehw7td">
+      <incoming>Flow_0y5wvky</incoming>
+    </endEvent>
+    <endEvent id="end" name="Fin">
+      <incoming>Flow_0pulhxw</incoming>
+    </endEvent>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0qpuwmg">
+      <bpmndi:BPMNShape id="Participant_116b559_di" bpmnElement="Participant_116b559" isHorizontal="true">
+        <dc:Bounds x="149" y="41" width="1409" height="899" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_1xggfkd_di" bpmnElement="Lane_1xggfkd" isHorizontal="true">
+        <dc:Bounds x="179" y="41" width="1379" height="177" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_08xsh9r_di" bpmnElement="Lane_08xsh9r" isHorizontal="true">
+        <dc:Bounds x="179" y="218" width="1379" height="342" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_0d560s5_di" bpmnElement="Lane_0d560s5" isHorizontal="true">
+        <dc:Bounds x="179" y="560" width="1379" height="380" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_start" bpmnElement="start">
+        <dc:Bounds x="200" y="100" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="203" y="136" width="31" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_soumission_demande" bpmnElement="soumission_demande">
+        <dc:Bounds x="300" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1eneqt9_di" bpmnElement="Gateway_1eneqt9" isMarkerVisible="true">
+        <dc:Bounds x="535" y="288" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1rv09fi_di" bpmnElement="Gateway_1rv09fi" isMarkerVisible="true">
+        <dc:Bounds x="705" y="370" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_manager_approval" bpmnElement="manager_approval">
+        <dc:Bounds x="300" y="355" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0vw9hs9_di" bpmnElement="Activity_1y1n7u6">
+        <dc:Bounds x="1150" y="710" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0ehw7td_di" bpmnElement="Event_0ehw7td">
+        <dc:Bounds x="1472" y="732" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_end" bpmnElement="end">
+        <dc:Bounds x="1462" y="122" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1472" y="158" width="16" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1gp587q_di" bpmnElement="Activity_0igrn8t" isExpanded="true">
+        <dc:Bounds x="970" y="310" width="510" height="170" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_05s8njz_di" bpmnElement="Event_0jairgh">
+        <dc:Bounds x="1002" y="372" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1001" y="415" width="38" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_05ysqyc_di" bpmnElement="Activity_1b4kgmk">
+        <dc:Bounds x="1140" y="350" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0lruz1d_di" bpmnElement="Event_1ej3w25">
+        <dc:Bounds x="1342" y="372" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_08ldthn_di" bpmnElement="Flow_08ldthn">
+        <di:waypoint x="1038" y="390" />
+        <di:waypoint x="1140" y="390" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0167a80_di" bpmnElement="Flow_0167a80">
+        <di:waypoint x="1240" y="390" />
+        <di:waypoint x="1342" y="390" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_BPMNEdge_flow1" bpmnElement="flow1">
+        <di:waypoint x="236" y="118" />
+        <di:waypoint x="300" y="118" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_BPMNEdge_flow2" bpmnElement="flow2">
+        <di:waypoint x="350" y="180" />
+        <di:waypoint x="350" y="355" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1uz8i58_di" bpmnElement="Flow_1uz8i58">
+        <di:waypoint x="400" y="395" />
+        <di:waypoint x="560" y="395" />
+        <di:waypoint x="560" y="338" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0pulhxw_di" bpmnElement="Flow_0pulhxw">
+        <di:waypoint x="560" y="288" />
+        <di:waypoint x="560" y="140" />
+        <di:waypoint x="1462" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1pa6mbl_di" bpmnElement="Flow_1pa6mbl">
+        <di:waypoint x="560" y="338" />
+        <di:waypoint x="560" y="395" />
+        <di:waypoint x="705" y="395" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1b5tmrl_di" bpmnElement="Flow_1b5tmrl">
+        <di:waypoint x="730" y="420" />
+        <di:waypoint x="730" y="750" />
+        <di:waypoint x="1150" y="750" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0gm7a3k_di" bpmnElement="Flow_0gm7a3k">
+        <di:waypoint x="755" y="395" />
+        <di:waypoint x="970" y="395" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0y8gapv_di" bpmnElement="Flow_0y8gapv">
+        <di:waypoint x="1230" y="480" />
+        <di:waypoint x="1230" y="710" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0y5wvky_di" bpmnElement="Flow_0y5wvky">
+        <di:waypoint x="1250" y="750" />
+        <di:waypoint x="1472" y="750" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

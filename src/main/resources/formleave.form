@@ -1,0 +1,77 @@
+{
+  "components": [
+    {
+      "label": "Motif de conge",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1uxtf46",
+        "columns": null
+      },
+      "id": "Field_0nkihkd",
+      "key": "textfield_gf1tpg"
+    },
+    {
+      "label": "nombre de jours",
+      "type": "number",
+      "layout": {
+        "row": "Row_16y9her",
+        "columns": null
+      },
+      "id": "Field_13k1yno",
+      "key": "number_15vuls"
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Date Debut",
+      "label": "Date time",
+      "type": "datetime",
+      "layout": {
+        "row": "Row_0fs4vaq",
+        "columns": null
+      },
+      "id": "Field_0vwb3ue",
+      "key": "datetime_3v2pj"
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Date Fin",
+      "label": "Date time",
+      "type": "datetime",
+      "layout": {
+        "row": "Row_14srk4q",
+        "columns": null
+      },
+      "id": "Field_18aro3q",
+      "key": "datetime_lsjbgc"
+    },
+    {
+      "action": "submit",
+      "label": "Confirmer",
+      "type": "button",
+      "layout": {
+        "row": "Row_05oiqh7",
+        "columns": 2
+      },
+      "id": "Field_0hbmhur"
+    },
+    {
+      "action": "submit",
+      "label": "Reset",
+      "type": "button",
+      "layout": {
+        "row": "Row_05oiqh7",
+        "columns": 2
+      },
+      "id": "Field_1gdru7o"
+    }
+  ],
+  "type": "default",
+  "id": "Form_1ju4vzs",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.19.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.20.0",
+  "schemaVersion": 14
+}
